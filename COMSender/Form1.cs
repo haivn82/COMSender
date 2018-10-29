@@ -182,7 +182,7 @@ namespace COMSender
             };
 
             timer = new Timer();
-            timer.Interval = 10000;
+            timer.Interval = 15000;
             timer.Start();
 
             timer.Tick += (s, e) => {

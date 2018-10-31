@@ -76,6 +76,9 @@ namespace COMSender
                     cmbCOMPorts.Items.Add(p);
                 }
 
+                if (ports.Length > 0)
+                    cmbCOMPorts.SelectedIndex = 0;
+
                 setStatus(false);
                
                 var cpu = getSystemData(cpuKey);
@@ -130,14 +133,14 @@ namespace COMSender
                     if (port == null)
                     {
                         port = new SerialPort(comPort, 115200, Parity.None, 8, StopBits.One);
-                        port.Open();
+                        //port.Open();
                         setStatus(true);
                     }
                     else
                     {
                         port.Close();
                         port = new SerialPort(comPort, 115200, Parity.None, 8, StopBits.One);
-                        port.Open();
+                        //port.Open();
                         setStatus(true);
                     }
                 }
@@ -162,6 +165,15 @@ namespace COMSender
                 }
             };
 
+            btnRefreshCOM.Click += (s, e) => {
+                string[] ps = SerialPort.GetPortNames();
+                cmbCOMPorts.Items.Clear();
+                foreach (var p in ps.ToList())
+                {
+                    cmbCOMPorts.Items.Add(p);
+                }
+            };
+
             FormClosing += (s, e) => {
                 if (port != null)
                 {
@@ -182,12 +194,16 @@ namespace COMSender
             };
 
             timer = new Timer();
-            timer.Interval = 15000;
+            timer.Interval = 12000;
             timer.Start();
 
             timer.Tick += (s, e) => {
-                #region DATA   
-                var cpu = getSystemData(cpuKey);
+                if (port != null)
+                {
+                    port.Open();
+                }
+                    #region DATA   
+                    var cpu = getSystemData(cpuKey);
                 var ram = getSystemData(ramKey);
                 var bat = getSystemData(batKey);
                 //var temp = getSystemDataWMI(tempKey);
@@ -244,12 +260,16 @@ namespace COMSender
                         var jsonString = JsonConvert.SerializeObject(spd);
                         Debug.WriteLine(jsonString);
                         //port.Open();
-                        if(port.IsOpen)
+                        if (port.IsOpen)
+                        {
                             port.WriteLine(jsonString);
+                            port.Close();
+                        }
                         else
                         {
-                            port.Open();
+                            //port.Open();
                             port.WriteLine(jsonString);
+                            port.Close();
                         }
                     }
                 }

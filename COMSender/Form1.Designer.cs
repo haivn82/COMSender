@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpData = new System.Windows.Forms.GroupBox();
+            this.lbStatus = new System.Windows.Forms.Label();
             this.btnDisconnectCOM = new System.Windows.Forms.Button();
             this.lbCPUName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,12 +47,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCOMPorts = new System.Windows.Forms.ComboBox();
-            this.lbStatus = new System.Windows.Forms.Label();
+            this.btnRefreshCOM = new System.Windows.Forms.Button();
             this.grpData.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpData
             // 
+            this.grpData.Controls.Add(this.btnRefreshCOM);
             this.grpData.Controls.Add(this.lbStatus);
             this.grpData.Controls.Add(this.btnDisconnectCOM);
             this.grpData.Controls.Add(this.lbCPUName);
@@ -76,6 +78,16 @@
             this.grpData.TabIndex = 0;
             this.grpData.TabStop = false;
             this.grpData.Text = "Click on Any Option";
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbStatus.Location = new System.Drawing.Point(6, 287);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(135, 21);
+            this.lbStatus.TabIndex = 17;
+            this.lbStatus.Text = "Connection Status";
             // 
             // btnDisconnectCOM
             // 
@@ -228,15 +240,15 @@
             this.cmbCOMPorts.Size = new System.Drawing.Size(375, 29);
             this.cmbCOMPorts.TabIndex = 0;
             // 
-            // lbStatus
+            // btnRefreshCOM
             // 
-            this.lbStatus.AutoSize = true;
-            this.lbStatus.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbStatus.Location = new System.Drawing.Point(6, 287);
-            this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(135, 21);
-            this.lbStatus.TabIndex = 17;
-            this.lbStatus.Text = "Connection Status";
+            this.btnRefreshCOM.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshCOM.Location = new System.Drawing.Point(258, 64);
+            this.btnRefreshCOM.Name = "btnRefreshCOM";
+            this.btnRefreshCOM.Size = new System.Drawing.Size(104, 29);
+            this.btnRefreshCOM.TabIndex = 18;
+            this.btnRefreshCOM.Text = "Refresh";
+            this.btnRefreshCOM.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -246,7 +258,6 @@
             this.Controls.Add(this.grpData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "COM Sender";
             this.grpData.ResumeLayout(false);
@@ -275,6 +286,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnDisconnectCOM;
         private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.Button btnRefreshCOM;
     }
 }
 

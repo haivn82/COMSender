@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpData = new System.Windows.Forms.GroupBox();
+            this.btnRefreshCOM = new System.Windows.Forms.Button();
             this.lbStatus = new System.Windows.Forms.Label();
             this.btnDisconnectCOM = new System.Windows.Forms.Button();
             this.lbCPUName = new System.Windows.Forms.Label();
@@ -47,7 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCOMPorts = new System.Windows.Forms.ComboBox();
-            this.btnRefreshCOM = new System.Windows.Forms.Button();
+            this.ntfIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.grpData.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +80,16 @@
             this.grpData.TabIndex = 0;
             this.grpData.TabStop = false;
             this.grpData.Text = "Click on Any Option";
+            // 
+            // btnRefreshCOM
+            // 
+            this.btnRefreshCOM.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshCOM.Location = new System.Drawing.Point(258, 64);
+            this.btnRefreshCOM.Name = "btnRefreshCOM";
+            this.btnRefreshCOM.Size = new System.Drawing.Size(104, 29);
+            this.btnRefreshCOM.TabIndex = 18;
+            this.btnRefreshCOM.Text = "Refresh";
+            this.btnRefreshCOM.UseVisualStyleBackColor = true;
             // 
             // lbStatus
             // 
@@ -240,15 +252,10 @@
             this.cmbCOMPorts.Size = new System.Drawing.Size(375, 29);
             this.cmbCOMPorts.TabIndex = 0;
             // 
-            // btnRefreshCOM
+            // ntfIcon
             // 
-            this.btnRefreshCOM.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefreshCOM.Location = new System.Drawing.Point(258, 64);
-            this.btnRefreshCOM.Name = "btnRefreshCOM";
-            this.btnRefreshCOM.Size = new System.Drawing.Size(104, 29);
-            this.btnRefreshCOM.TabIndex = 18;
-            this.btnRefreshCOM.Text = "Refresh";
-            this.btnRefreshCOM.UseVisualStyleBackColor = true;
+            this.ntfIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("ntfIcon.Icon")));
+            this.ntfIcon.Visible = true;
             // 
             // Form1
             // 
@@ -287,6 +294,7 @@
         private System.Windows.Forms.Button btnDisconnectCOM;
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.Button btnRefreshCOM;
+        private System.Windows.Forms.NotifyIcon ntfIcon;
     }
 }
 
